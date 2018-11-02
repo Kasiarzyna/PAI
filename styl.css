@@ -1,0 +1,126 @@
+<style>
+
+* {
+    box-sizing: border-box;
+	background-color: var(--jbraz);
+}
+
+body {
+	--jbraz: EEEEEE;
+	--cbraz: #AAAAAA;
+	--sbraz: #CCCCCC;
+    font-family: Arial, Helvetica, sans-serif;
+	font-size: 2.5vh;
+	line-height:100%;
+	background-color: var(--jbraz);
+}
+main {
+	background-color: var(--cbraz);
+	padding:10px;
+	text-indent: 3vh;
+	text-align: justify;
+	color: dark brown;
+	height:auto;
+	width: 95%;
+	margin-right: 2.5%;
+	margin-left: 2.5%;
+}
+div:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+table{
+	float: left;
+	width: 95%;
+	height: 70%;
+	margin-left: 2.5%;
+	overflow: scroll;
+	font-size: 2.5vh;
+	background-color: var(--cbraz)
+	
+}
+.tresc-item{
+	text-align: justify;
+	width:auto;
+	background-color: var(--sbraz);
+	
+}
+.menu-item{
+	float:left;
+	background-color: var(--cbraz);
+	width: 13vw;
+}
+
+ol {
+        list-style-type:none;
+        padding:0;
+        background-color: var(--sbraz);
+        font-size:2.5vh;
+        height:2em;
+        line-height:2em;
+        text-align:center;
+      }
+
+      ol a {
+        display:block;
+        text-decoration:none;
+        color:#000;
+        padding:0.5vh;
+      }
+
+      ol > li {
+        float:left;
+        width:100%;
+        background-color: var(--cbraz);
+        height:2em;
+      }
+  
+      ol > li:first-child {
+        margin-left:0;
+      }
+
+      
+      ol > li:hover {
+        background-color:var(--sbraz);
+      }
+
+      ol > li:hover > ul {
+        display:block;
+      }
+
+  
+      ol > li > ul {
+        display:none;
+        list-style-type:none;
+        padding:0;
+        margin:0;
+      }
+
+      ol > li > ul > li {
+        position:relative;
+        background-color:var(--sbraz);
+      }
+
+      ol > li > ul > li:hover {
+        background-color:var(--cbraz);
+      }
+
+
+footer{
+	float: bottom;
+	background-color: var(--cbraz);
+    padding: 10px;
+    text-align: left;
+    color: black;
+	width: 95%;
+	margin-left: 2.5%;
+	height: auto;
+}
+@media (max-width: 600px) {
+    nav, article {
+        max width: 100%;
+        height: auto;
+    }
+}
+</style>
