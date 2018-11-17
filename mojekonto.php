@@ -2,18 +2,17 @@
 
 	session_start();
 	
-	if ((isset($_SESSION['zalogowany'])) && ($_SESSION['zalogowany']==true))
+	if (!isset($_SESSION['zalogowany']))
 	{
-		header('Location: mojekonto.php');
+		header('Location: logowanie.php');
 		exit();
 	}
-
+	
 ?>
-
-+<!DOCTYPE html>
+?>
 </body>
 </html>
-
++<!DOCTYPE html>
 <html lang="pl-PL">
 
 <head>
@@ -29,6 +28,8 @@
 <a href="glowna.php"><img class ="logo" src="logo.png" alt="Księgarnia Lawenda" /></a>
 </main>
 
+
+<nav>
 <ol id="menu">
     <li class="dol"><a href="#">Kategorie</a>
       <ul>
@@ -46,30 +47,16 @@
 </nav>
 
 
+<div class="tresc-item">
 
-<table class="tresc-item">
-<tr>
-<td>
-  <h3>REJESTRACJA</h3>
-  <form method="POST" action="rejestracja.php">
-  <br><b>Login:</b><br><input type="text" name="login"><br><br>
-  <b>Hasło:</b><br><input type="password" name="haslo1"><br><br>
-  <b>Powtórz hasło:</b><br><input type="password" name="haslo2"><br><br>
-  <b>Email:</b><br><input type="text" name="email"><br><br>
-  <input type="submit" value="Utwórz konto" name="rejestruj">
-  </form>
-  </td>
- 
-  <td>
-     <h3>LOGOWANIE</h3>
-  <form method="POST" action="zaloguj.php">
-  <br><b>Login:</b><br><input type="text" name="login"><br><br>
-  <b>Hasło:</b><br><input type="password" name="haslo"><br><br>
-  <input type="submit" value="Zaloguj" name="loguj">
-  </td>
-   </form>
-   </tr>
-   </table>
+  <h2>
+<?php
+echo "Witaj, ".$_SESSION['login']."!"; 
+?></h2>
+<form method="POST" action="wyloguj.php">
+<input type="submit" value="Wyloguj" name="wyloguj">
+</form>
+</div>
 
 
 

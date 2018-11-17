@@ -3,28 +3,35 @@
 $log=0;
 $em=0;	
 $has=0;
- try
-   {
-      $pdo = new PDO('mysql:host=localhost;dbname=pai', 'root', 'haslo1234');
-      /*$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);*/
+
+session_start();
+	if ((!isset($_POST['login'])) || (!isset($_POST['haslo1']))  || (!isset($_POST['haslo2']))  || (!isset($_POST['email'])))
+	{
+		header('Location: logowanie.php');
+		exit();
+	}
+require_once "connect.php";	  
+$connect = @new mysqli($host, $user, $pass, $database);
+
+if ($connect->connect_errno!=0)
+	{
+		echo "Połączenie nie mogło zostać utworzone. Błąd: ".$connect->connect_errno;
+	}
+else
+	{
 	    $login = ($_POST['login']);
 		$haslo1 = ($_POST['haslo1']);
 		$haslo2 = ($_POST['haslo2']);
 		$email = ($_POST['email']);
 		$ip = ($_SERVER['REMOTE_ADDR']);
-$host="localhost";
-$user="root";
-$pass="haslo1234";
-$database="pai";
-	  
-$connect = mysqli_connect($host, $user, $pass, $database);
+
 $query="SELECT login FROM uzytkownicy WHERE login='$login'";
 $result = mysqli_query($connect, $query);
 $numrow=mysqli_num_rows($result);
 
 
-	if((empty($login))||(empty($mail))||(empty($haslo1))||(empty($haslo2)))
-		echo "Uzupełnij arkusz.<br>";
+	if((empty($login))||(empty($email))||(empty($haslo1))||(empty($haslo2))){
+	echo "Uzupełnij arkusz.<br>";}
 	
 	if ($numrow == 0) 
  {
@@ -74,15 +81,10 @@ if(($log==1)&&($has==1)&&($em==1)&&($ma==1)){
         VALUES ('".$login."', '".md5($haslo1)."', '".$email."', '".$ip."');");
  
        echo 'Konto utworzone';
-	   header('Location: konto_utw.html');
+	   header('Location: konto_utw.php');
 	   exit;}
+	   
+	   $connect->close();
 
    } 
-   
-   
-   catch(PDOException $e)
-   {
-      echo 'Połączenie nie mogło zostać utworzone: ' . $e->getMessage();
-   }
-  
 ?>

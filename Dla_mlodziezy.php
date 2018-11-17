@@ -1,19 +1,6 @@
 <?php
-
-	session_start();
-	
-	if ((isset($_SESSION['zalogowany'])) && ($_SESSION['zalogowany']==true))
-	{
-		header('Location: mojekonto.php');
-		exit();
-	}
-
-?>
-
-+<!DOCTYPE html>
-</body>
-</html>
-
+session_start();
+?>+<!DOCTYPE html>
 <html lang="pl-PL">
 
 <head>
@@ -43,34 +30,9 @@
     <li><a href="koszyk.php">Koszyk</a></li>
     <li><a href="glowna.php">Główna</a></li>
   </ol>
-</nav>
 
-
-
-<table class="tresc-item">
-<tr>
-<td>
-  <h3>REJESTRACJA</h3>
-  <form method="POST" action="rejestracja.php">
-  <br><b>Login:</b><br><input type="text" name="login"><br><br>
-  <b>Hasło:</b><br><input type="password" name="haslo1"><br><br>
-  <b>Powtórz hasło:</b><br><input type="password" name="haslo2"><br><br>
-  <b>Email:</b><br><input type="text" name="email"><br><br>
-  <input type="submit" value="Utwórz konto" name="rejestruj">
-  </form>
-  </td>
- 
-  <td>
-     <h3>LOGOWANIE</h3>
-  <form method="POST" action="zaloguj.php">
-  <br><b>Login:</b><br><input type="text" name="login"><br><br>
-  <b>Hasło:</b><br><input type="password" name="haslo"><br><br>
-  <input type="submit" value="Zaloguj" name="loguj">
-  </td>
-   </form>
-   </tr>
-   </table>
-
+<div class="tresc-item">
+</div>
 
 
 <footer>

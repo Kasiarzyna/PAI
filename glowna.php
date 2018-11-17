@@ -1,19 +1,9 @@
 <?php
-
-	session_start();
-	
-	if ((isset($_SESSION['zalogowany'])) && ($_SESSION['zalogowany']==true))
-	{
-		header('Location: mojekonto.php');
-		exit();
-	}
-
+session_start();
 ?>
-
-+<!DOCTYPE html>
 </body>
 </html>
-
++<!DOCTYPE html>
 <html lang="pl-PL">
 
 <head>
@@ -46,31 +36,14 @@
 </nav>
 
 
+<div class="tresc-item">
 
-<table class="tresc-item">
-<tr>
-<td>
-  <h3>REJESTRACJA</h3>
-  <form method="POST" action="rejestracja.php">
-  <br><b>Login:</b><br><input type="text" name="login"><br><br>
-  <b>Hasło:</b><br><input type="password" name="haslo1"><br><br>
-  <b>Powtórz hasło:</b><br><input type="password" name="haslo2"><br><br>
-  <b>Email:</b><br><input type="text" name="email"><br><br>
-  <input type="submit" value="Utwórz konto" name="rejestruj">
-  </form>
-  </td>
- 
-  <td>
-     <h3>LOGOWANIE</h3>
-  <form method="POST" action="zaloguj.php">
-  <br><b>Login:</b><br><input type="text" name="login"><br><br>
-  <b>Hasło:</b><br><input type="password" name="haslo"><br><br>
-  <input type="submit" value="Zaloguj" name="loguj">
-  </td>
-   </form>
-   </tr>
-   </table>
-
+  <h2>Księgarnia internetowa</h2>
+<p>Księgarnia internetowa ma zaszczyt powitać Państwa na oficjalnej stronie internetowej sklepu wysyłkowego.
+ Jako dystrybutor wielu wydawnictw mamy do zaoferowania ogromną ilość tytułów.
+ W naszych zasobach znajdują się książki z wielu kategorii, takich jak: groza, beletrystyka czy specjalistyczne poradniki, a także wiele innych. 
+ W naszej ofercie odnajdą Państwo także książki dla dzieci i młodzieży.<br> Zapraszamy do zakupów! </p>
+</div>
 
 
 <footer>
