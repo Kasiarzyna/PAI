@@ -77,8 +77,9 @@ $numrow=mysqli_num_rows($result);
 	
 	
 if(($log==1)&&($has==1)&&($em==1)&&($ma==1)){
-        $pdo->exec("INSERT INTO `uzytkownicy` (`login`, `haslo`, `email`, `ip`)
+        $query3=("INSERT INTO `uzytkownicy` (`login`, `haslo`, `email`, `ip`)
         VALUES ('".$login."', '".md5($haslo1)."', '".$email."', '".$ip."');");
+		mysqli_query($connect, $query3);
  
        echo 'Konto utworzone';
 	   header('Location: konto_utw.php');
