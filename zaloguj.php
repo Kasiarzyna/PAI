@@ -26,11 +26,17 @@ $connect = new mysqli($host, $user, $pass, $database);
 					$wiersz=$rezultat->fetch_assoc();
 					$_SESSION['id']=$wiersz['id'];
 					$_SESSION['login']=$wiersz['login'];
-					$_SESSION['haslo']=$wiersz['haslo'];
-					
+					$_SESSION['haslo']=$wiersz['haslo'];					
 					$rezultat->free();
 					header('Location: mojekonto.php');
-					
+					if($_SESSION['id']==1){
+						$_SESSION['admin']=true;
+						header('Location: admin.php');
+					}
+					elseif($_SESSION['id']!==1)
+					{
+						$_SESSION['admin']=false;
+					}
 				}
 				else{
 					echo "Nieprawidłowy login lub hasło. Spróbuj ponownie.";

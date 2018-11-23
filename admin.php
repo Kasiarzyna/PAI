@@ -1,6 +1,20 @@
 <?php
 session_start();
+
+if ((!isset($_SESSION['zalogowany'])))
+	{
+	header('Location: logowanie.php');
+	exit();
+	}
+elseif((isset($_SESSION['admin'])) && ($_SESSION['admin']==false))
+	{
+		header('Location: mojekonto.php');
+		exit();
+	}
+	
+
 ?>
+
 
 <!DOCTYPE html>
 <html lang="pl-PL">
@@ -44,68 +58,20 @@ session_start();
 </div>
 </div>
 
-
-<br>
-<br>
+<div class="row">
+<div class="col-sm-12">
 <section>
-<div class="tresc-item">
-
-	<div class="row">
-		<div class="col-md-1"></div>
-		<div class="col-md-4">
-	
-					
-					<a href="img/tajcyrk.jpg" data-lightbox="roadtrip" data-title="My caption"><img class="col-sm-12" src="img/tajcyrk.jpg" alt="Bla1"/></a><br><br>
-					<b><br><p>Bla1</p></b>
-					
-					<input type="submit" value="Ulubione" name="ulubione"><br><br><br>
-		</div>
-		<div class="col-md-1 offset-md-1"></div>
-		<div class="col-md-4">
-	
-					<a href="img/1.jpg" data-lightbox="roadtrip" data-title="My caption"><img class="col-sm-12" src="img/1.jpg" alt="Bla2"/></a><br><br>
-					<b><br><p>Bla2</p></b>
-					<input type="submit" value="Ulubione" name="ulubione"><br><br><br>
-		</div>
-	</div>	
-	<div class="row">
-		<div class="col-md-1"></div>
-		<div class="col-md-4">
-	
-					
-					<a href="img/g2.jpg" data-lightbox="roadtrip" data-title="My caption"><img class="col-sm-12" src="img/2.jpg" alt="Bla1"/></a><br><br>
-					<b><br><p>Bla1</p></b>
-					
-					<input type="submit" value="Ulubione" name="ulubione"><br><br><br>
-		</div>
-		<div class="col-md-1 offset-md-1"></div>
-		<div class="col-md-4">
-	
-					<a href="img/3.jpg" data-lightbox="roadtrip" data-title="My caption"><img class="col-sm-12" src="img/3.jpg" alt="Bla2"/></a><br><br>
-					<b><br><p>Bla2</p></b>
-					<input type="submit" value="Ulubione" name="ulubione"><br><br><br>
-		</div>
-	</div>	
-	<div class="row">
-		<div class="col-md-1"></div>
-		<div class="col-md-4">
-	
-					
-					<a href="img/4.jpg" data-lightbox="roadtrip" data-title="My caption"><img class="col-sm-12" src="img/4.jpg" alt="Bla1"/></a><br><br>
-					<b><br><p>Bla1</p></b>
-					
-					<input type="submit" value="Ulubione" name="ulubione"><br><br><br>
-		</div>
-		<div class="col-md-1 offset-md-1"></div>
-		<div class="col-md-4">
-	
-					<a href="img/5.jpg" data-lightbox="roadtrip" data-title="My caption"><img class="col-sm-12" src="img/5.jpg" alt="Bla2"/></a><br><br>
-					<b><br><p>Bla2</p></b>
-					<input type="submit" value="Ulubione" name="ulubione"><br><br><br>
-		</div>
-	</div>		
-	</div>
+  <h2>
+<?php
+echo "Witaj, ".$_SESSION['login']."!"; 
+?></h2><br><br>
+<form method="POST" action="wyloguj.php">
+<input type="submit" value="Wyloguj" name="wyloguj"><br><br><br><br>
+</form>
 </section>
+</div>
+</div>
+
 
 
 <div class="row">
@@ -124,7 +90,6 @@ session_start();
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 <script = src "js/bootstrap.min.js"></script>
-<script src="dist/js/lightbox-plus-jquery.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 <script src = "meni.js"></script>
 </body>

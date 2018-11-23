@@ -126,20 +126,6 @@ session_start();
 <script = src "js/bootstrap.min.js"></script>
 <script src="dist/js/lightbox-plus-jquery.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-<script>
-    $(function(){
-        $(".main li").hover(
-            function(){
-                //$('ul.sub', this).slideDown(500);
-                //$('>ul.sub', this).slideDown(500);
-                $('>ul.sub:not(:animated)', this).slideDown(500);
-            },
-            function(){
-                //$('ul.sub',this).slideUp(300);
-                $('>ul.sub',this).slideUp(300);
-            }
-        );
-    });
-</script>
+<script src = "meni.js"></script>
 </body>
 </html>

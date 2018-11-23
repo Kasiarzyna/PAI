@@ -7,6 +7,11 @@
 		header('Location: logowanie.php');
 		exit();
 	}
+	if((isset($_SESSION['admin'])) && ($_SESSION['admin']==true))
+		{
+			header('Location: admin.php');
+			exit();
+		}
 	
 ?>
 <!DOCTYPE html>
@@ -84,20 +89,6 @@ echo "Witaj, ".$_SESSION['login']."!";
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 <script = src "js/bootstrap.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-<script>
-    $(function(){
-        $(".main li").hover(
-            function(){
-                //$('ul.sub', this).slideDown(500);
-                //$('>ul.sub', this).slideDown(500);
-                $('>ul.sub:not(:animated)', this).slideDown(500);
-            },
-            function(){
-                //$('ul.sub',this).slideUp(300);
-                $('>ul.sub',this).slideUp(300);
-            }
-        );
-    });
-</script>
+<script src = "meni.js"></script>
 </body>
 </html>

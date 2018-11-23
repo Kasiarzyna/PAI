@@ -14,7 +14,7 @@
             float: right;
             width: 160px;
             height: 40px;
-            background-color: #EEEEEE;
+            background-color: #CCCCCC;
             line-height: 40px;
             text-align: center;
             position: relative;
@@ -28,7 +28,7 @@
             color: black;
 		}
         nav li a:hover {
-		background-color: #CCCCCC;;
+		background-color: #AAAAAA;
 		}
         nav ul.sub {
             position: absolute;
