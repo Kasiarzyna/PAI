@@ -79,6 +79,7 @@
   <input type="submit" value="Zaloguj" name="loguj"><br><br><br>
 
    </form>
+ 
    </div>
  </div>
 </section>

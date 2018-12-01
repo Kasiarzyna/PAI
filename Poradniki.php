@@ -55,17 +55,28 @@ session_start();
 		<div class="col-md-4">
 	
 					
-					<a href="img/p1.jpg" data-lightbox="roadtrip" data-title="My caption"><img class="col-sm-12" src="img/p1.jpg" alt="Bla1"/></a><br><br>
-					<b><br><p>Bla1</p></b>
-					
-					<input type="submit" value="Ulubione" name="ulubione"><br><br><br>
+					<a href="img/p1.jpg" data-lightbox="roadtrip" data-title="Jedz i trenuj"><img class="col-sm-12" src="img/p1.jpg" alt="Jedz i trenuj"/></a><br><br>
+					<form method="POST" action="ulubione.php">
+					<b><br><p>Tytuł: Jedz i trenuj</p></b>
+					<b><br><p>Autor: Nancy Clark</p></b>
+					<p>Poradnik odżywiania dla aktywnych.</p> 
+					<input type="hidden" value="13" name="Nr_ksiazki">
+					<input type="submit" value="Ulubione">
+					<br><br><br>
+					</form>
 		</div>
 		<div class="col-md-1 offset-md-1"></div>
 		<div class="col-md-4">
 	
-					<a href="img/p2.jpg" data-lightbox="roadtrip" data-title="My caption"><img class="col-sm-12" src="img/p2.jpg" alt="Bla2"/></a><br><br>
-					<b><br><p>Bla2</p></b>
-					<input type="submit" value="Ulubione" name="ulubione"><br><br><br>
+					<a href="img/p2.jpg" data-lightbox="roadtrip" data-title="Boży poradnik antydepresyjny. Wyjść z depresji duchowej"><img class="col-sm-12" src="img/p2.jpg" alt="Boży poradnik antydepresyjny. Wyjść z depresji duchowej"/></a><br><br>
+					<form method="POST" action="ulubione.php">
+					<b><br><p>Tytuł: Boży poradnik antydepresyjny. Wyjść z depresji duchowej</p></b>
+					<b><br><p>Autor: Arkadiusz Łodziewski</p></b>
+					<p>Książka dla wszystkich tych, którzy czują się zagubieni w codzienności. Zawiera krótkie rozważania, myśli, które pozwalają zwrócić uwagę na to, co w duchowym życiu najistotniejsze. Często bowiem głowa zajęta jest przyziemnymi sprawami.</p> 
+					<input type="hidden" value="14" name="Nr_ksiazki">
+					<input type="submit" value="Ulubione">
+					<br><br><br>
+					</form>
 		</div>
 	</div>	
 	<div class="row">
@@ -73,17 +84,31 @@ session_start();
 		<div class="col-md-4">
 	
 					
-					<a href="img/p3.jpg" data-lightbox="roadtrip" data-title="My caption"><img class="col-sm-12" src="img/p3.jpg" alt="Bla1"/></a><br><br>
-					<b><br><p>Bla1</p></b>
-					
-					<input type="submit" value="Ulubione" name="ulubione"><br><br><br>
+					<a href="img/p3.jpg" data-lightbox="roadtrip" data-title="Ministranci."><img class="col-sm-12" src="img/p3.jpg" alt="Ministranci."/></a><br><br>
+					<form method="POST" action="ulubione.php">
+					<b><br><p>Tytuł: Ministranci</p></b>
+					<b><br><p>Autor: Sebastian Kosecki</p></b>
+					<p>Poradnik dla opiekunów liturgicznej służby ołtarza.</p> 
+					<input type="hidden" value="15" name="Nr_ksiazki">
+					<input type="submit" value="Ulubione">
+					<br><br><br>
+					</form>
 		</div>
 		<div class="col-md-1 offset-md-1"></div>
 		<div class="col-md-4">
 	
-					<a href="img/p4.jpg" data-lightbox="roadtrip" data-title="My caption"><img class="col-sm-12" src="img/p4.jpg" alt="Bla2"/></a><br><br>
-					<b><br><p>Bla2</p></b>
-					<input type="submit" value="Ulubione" name="ulubione"><br><br><br>
+					<a href="img/p4.jpg" data-lightbox="roadtrip" data-title="	
+Rowery od A do Z"><img class="col-sm-12" src="img/p4.jpg" alt="	
+Rowery od A do Z"/></a><br><br>
+					<form method="POST" action="ulubione.php">
+					<b><br><p>Tytuł: 	
+Rowery od A do Z</p></b>
+					<b><br><p>Autor: Korzonek Marcin Jakub</p></b>
+					<p>Poradnik rowerowy przeznaczony zarówno dla tych, którzy dopiero zastanawiają się nad wyborem i kupnem roweru, jak i bardziej zaawansowanych cyklistów.</p> 
+					<input type="hidden" value="16" name="Nr_ksiazki">
+					<input type="submit" value="Ulubione">
+					<br><br><br>
+					</form>
 		</div>
 	</div>	
 	<div class="row">
@@ -91,17 +116,28 @@ session_start();
 		<div class="col-md-4">
 	
 					
-					<a href="img/p5.jpg" data-lightbox="roadtrip" data-title="My caption"><img class="col-sm-12" src="img/p5.jpg" alt="Bla1"/></a><br><br>
-					<b><br><p>Bla1</p></b>
-					
-					<input type="submit" value="Ulubione" name="ulubione"><br><br><br>
+					<a href="img/p5.jpg" data-lightbox="roadtrip" data-title="Edycja tekstów. Praktyczny poradnik"><img class="col-sm-12" src="img/p5.jpg" alt="Edycja tekstów. Praktyczny poradnik"/></a><br><br>
+					<form method="POST" action="ulubione.php">
+					<b><br><p>Tytuł: Edycja tekstów. Praktyczny poradnik</p></b>
+					<b><br><p>Autor: Adam Wolański</p></b>
+					<p>Książka dotyczy wszelkich aspektów profesjonalnego przygotowania różnych typów publikacji do wydania drukiem lub elektronicznie - począwszy od poziomu typograficznego (rodzaje pisma, wyróżnienia typograficzne), przez elementy językowe i pozajęzykowe.</p> 
+					<input type="hidden" value="17" name="Nr_ksiazki">
+					<input type="submit" value="Ulubione">
+					<br><br><br>
+					</form>
 		</div>
 		<div class="col-md-1 offset-md-1"></div>
 		<div class="col-md-4">
 	
-					<a href="img/p6.jpg" data-lightbox="roadtrip" data-title="My caption"><img class="col-sm-12" src="img/p6.jpg" alt="Bla2"/></a><br><br>
-					<b><br><p>Bla2</p></b>
-					<input type="submit" value="Ulubione" name="ulubione"><br><br><br>
+					<a href="img/p6.jpg" data-lightbox="roadtrip" data-title="Poradnik dżentelmena i damy"><img class="col-sm-12" src="img/p6.jpg" alt="Poradnik dżentelmena i damy"/></a><br><br>
+					<form method="POST" action="ulubione.php">
+					<b><br><p>Tytuł: Poradnik dżentelmena i damy</p></b>
+					<b><br><p>Autor: Zbigniew Hojka</p></b>
+					<p>"Poradnik dżentelmena i damy" to praktyczna publikacja oprowadzająca po pełnej mielizn i pułapek współczesnej codzienności. Przynosi także ogromną wiedzę o kulturze współczesnej i jej źródłach, o zwyczajach i obyczajach, a niezliczone ciekawostki zaskakuj.</p> 
+					<input type="hidden" value="18" name="Nr_ksiazki">
+					<input type="submit" value="Ulubione">
+					<br><br><br>
+					</form>
 		</div>
 	</div>		
 	</div>

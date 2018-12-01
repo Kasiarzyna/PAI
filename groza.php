@@ -55,17 +55,28 @@ session_start();
 		<div class="col-md-4">
 	
 					
-					<a href="img/g1.jpg" data-lightbox="roadtrip" data-title="My caption"><img class="col-sm-12" src="img/g1.jpg" alt="Bla1"/></a><br><br>
-					<b><br><p>Bla1</p></b>
-					
-					<input type="submit" value="Ulubione" name="ulubione"><br><br><br>
+					<a href="img/g1.jpg" data-lightbox="roadtrip" data-title="Nemezis i inne utwory poetyckie"><img class="col-sm-12" src="img/g1.jpg" alt="Nemezis i inne utwory poetyckie"/></a><br><br>
+					<form method="POST" action="ulubione.php">
+					<b><br><p>Tytuł: Nemezis i inne utwory poetyckie</p></b>
+					<b><br><p>Autor: Howard Phillips Lovecraft</p></b>
+					<p>Nemezis i inne utwory poetyckie to pierwszy tak obszerny wybór najlepszej liryki z dorobku H.P. Lovecrafta. Prócz wszystkich utworów o charakterze niesamowitym i fantastycznym, w tym takich klasyków jak Grzyby z Yuggoth, Nemezis czy Prastary szlak.</p> 
+					<input type="hidden" value="42" name="Nr_ksiazki">
+					<input type="submit" value="Ulubione">
+					<br><br><br>
+					</form>
 		</div>
 		<div class="col-md-1 offset-md-1"></div>
 		<div class="col-md-4">
 	
-					<a href="img/g2.jpg" data-lightbox="roadtrip" data-title="My caption"><img class="col-sm-12" src="img/g2.jpg" alt="Bla2"/></a><br><br>
-					<b><br><p>Bla2</p></b>
-					<input type="submit" value="Ulubione" name="ulubione"><br><br><br>
+					<a href="img/g2.jpg" data-lightbox="roadtrip" data-title="Przyszła na Sarnath zagłada"><img class="col-sm-12" src="img/g2.jpg" alt="Przyszła na Sarnath zagłada"/></a><br><br>
+					<form method="POST" action="ulubione.php">
+					<b><br><p>Tytuł: Przyszła na Sarnath zagłada</p></b>
+					<b><br><p>Autor: Howard Phillips Lovecraft</p></b>
+					<p>Przyszła na Sarnath zagłada. Opowieści niesamowite i fantastyczne to drugi po Zgrozie w Dunwich i innych przerażających opowieściach wybór najlepszych utworów H.P. Lovecrafta. Tym razem klasycznym opowiadaniom grozy, takim jak Zeznanie Randolpha Cartera.</p> 
+					<input type="hidden" value="41" name="Nr_ksiazki">
+					<input type="submit" value="Ulubione">
+					<br><br><br>
+					</form>
 		</div>
 	</div>	
 	<div class="row">
@@ -73,17 +84,31 @@ session_start();
 		<div class="col-md-4">
 	
 					
-					<a href="img/g3.jpg" data-lightbox="roadtrip" data-title="My caption"><img class="col-sm-12" src="img/g3.jpg" alt="Bla1"/></a><br><br>
-					<b><br><p>Bla1</p></b>
-					
-					<input type="submit" value="Ulubione" name="ulubione"><br><br><br>
+					<a href="img/g3.jpg" data-lightbox="roadtrip" data-title="	
+Zgroza w Dunwich"><img class="col-sm-12" src="img/g3.jpg" alt="	
+Zgroza w Dunwich"/></a><br><br>
+					<form method="POST" action="ulubione.php">
+					<b><br><p>Tytuł: 	
+Zgroza w Dunwich</p></b>
+					<b><br><p>Autor: Howard Phillips Lovecraft</p></b>
+					<p>Czytelniku, miej się na baczności! Oto piętnaście najbardziej upiornych opowieści wszech czasów: Zgroza w Dunwich, Zew Cthulhu, Widmo nad Innsmouth, W górach szaleństwa, Przypadek Charlesa Dextera Warda, Kolor z innego wszechświata… </p> 
+					<input type="hidden" value="46" name="Nr_ksiazki">
+					<input type="submit" value="Ulubione">
+					<br><br><br>
+					</form>
 		</div>
 		<div class="col-md-1 offset-md-1"></div>
 		<div class="col-md-4">
 	
-					<a href="img/g4.jpg" data-lightbox="roadtrip" data-title="My caption"><img class="col-sm-12" src="img/g4.jpg" alt="Bla2"/></a><br><br>
-					<b><br><p>Bla2</p></b>
-					<input type="submit" value="Ulubione" name="ulubione"><br><br><br>
+					<a href="img/g4.jpg" data-lightbox="roadtrip" data-title="Opowieści zebrane"><img class="col-sm-12" src="img/g4.jpg" alt="Opowieści zebrane"/></a><br><br>
+					<form method="POST" action="ulubione.php">
+					<b><br><p>Tytuł: Opowieści zebrane</p></b>
+					<b><br><p>Autor: Howard Phillips Lovecraft</p></b>
+					<p>Dzieła „dżentelmena z Providence”, jak nazywano pisarza, stanowiły inspirację dla tak głośnych autorów horrorów jak Stephen King, Anne Rice czy Clive Barker. Doprowadzając do perfekcji swój styl, cyzelował w opowiadaniach gotycki klimat niezwykłości.</p> 
+					<input type="hidden" value="45" name="Nr_ksiazki">
+					<input type="submit" value="Ulubione">
+					<br><br><br>
+					</form>
 		</div>
 	</div>	
 	<div class="row">
@@ -92,16 +117,27 @@ session_start();
 	
 					
 					<a href="img/g5.jpg" data-lightbox="roadtrip" data-title="My caption"><img class="col-sm-12" src="img/g5.jpg" alt="Bla1"/></a><br><br>
-					<b><br><p>Bla1</p></b>
-					
-					<input type="submit" value="Ulubione" name="ulubione"><br><br><br>
+					<form method="POST" action="ulubione.php">
+					<b><br><p>Tytuł: Wybór opowiadań</p></b>
+					<b><br><p>Autor: Edgar Allan Poe</p></b>
+					<p>Poe, prekursor współczesnego horroru i opowiadań detektywistycznych, w nowym, mistrzowskim przekładzie, pozbawionym przesadnej stylizacji, archaizacji czy "młodopolskiej" maniery. Znakomicie oddane walory językowe i literackie oryginałów.</p> 
+					<input type="hidden" value="44" name="Nr_ksiazki">
+					<input type="submit" value="Ulubione">
+					<br><br><br>
+					</form>
 		</div>
 		<div class="col-md-1 offset-md-1"></div>
 		<div class="col-md-4">
 	
 					<a href="img/g6.jpeg" data-lightbox="roadtrip" data-title="My caption"><img class="col-sm-12" src="img/g6.jpeg" alt="Bla2"/></a><br><br>
-					<b><br><p>Bla2</p></b>
-					<input type="submit" value="Ulubione" name="ulubione"><br><br><br>
+					<form method="POST" action="ulubione.php">
+					<b><br><p>Tytuł: Opowiadania</p></b>
+					<b><br><p>Autor: Edgar Allan Poe</p></b>
+					<p>Geniusz Poego polega na tym, że nie opowiada historii wprost, komentując wydarzenia i podając czytelnikowi gotową interpretację. W istocie pokazuje tylko postaci i ich zachowania, schematy i mechanizmy, których działanie oraz konsekwencje musimy zrozumieć.</p> 
+					<input type="hidden" value="43" name="Nr_ksiazki">
+					<input type="submit" value="Ulubione">
+					<br><br><br>
+					</form>
 		</div>
 	</div>		
 	</div>

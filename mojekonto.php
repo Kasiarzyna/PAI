@@ -17,7 +17,7 @@
 <!DOCTYPE html>
 <html lang="pl-PL">
 <head>
-<meta charset="utf-8">
+<meta charset="utf8_polish_ci">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Wydawnictwo Lawenda</title>
 <meta name = "description" content="Strona internetowa wydawnictwa Lawenda">
@@ -61,10 +61,60 @@
 <div class="row">
 <div class="col-sm-12">
 <section>
+<br><br>
   <h2>
 <?php
 echo "Witaj, ".$_SESSION['login']."!"; 
 ?></h2><br><br>
+<?php
+	require_once "connect.php";
+	$connect = new mysqli($host, $user, $pass, $database);
+	$connect -> query ('SET NAMES utf8');
+	$connect -> query ('SET CHARACTER_SET utf8_unicode_ci');
+	if ($connect->connect_errno!=0)
+	{
+		echo "Połączenie nie mogło zostać utworzone. Błąd: ".$connect->connect_errno;
+	}
+	else
+	{
+		
+		$id=$_SESSION['id'];
+		$sql="SELECT * FROM ulubione join ksiazki ON ulubione.Nr_ksiazki=ksiazki.Nr_ksiazki where ulubione.id='$id'";
+		$wynik=$connect->query($sql);
+	
+		if(mysqli_num_rows($wynik) > 0) { 
+		echo "<p>Twoje ulubione książki:<p>";
+		/* jeżeli wynik jest pozytywny, to wyświetlamy dane */ 
+		echo "<table cellpadding=\"5\" border=3>"; 
+		echo "<tr>"; 
+        echo "<td><b>Tytuł</b></td>"; 
+		echo "<td><b>Autor</></td>"; 
+        echo "<td><b>Opis</></td>"; 
+		echo "<td><b>Usuń</></td>";
+		while($r = mysqli_fetch_object($wynik)) { 
+        echo "<tr>"; 
+        echo "<td><b>".$r->Tytul."</b></td>"; 
+		echo "<td>".$r->Autor."</td>"; 
+        echo "<td>".$r->opis."</td>"; 
+		echo "<td><form method='POST' action='usun.php'><input type='hidden' name='ksiazka' value=".$r->Nr_ksiazki."><input type='submit' value='Usuń'></form></td>";
+        echo "</tr>"; 
+		} 
+		echo "</table>"; 
+		//koniec tabeli
+		
+		echo "<br><br>Polecane specjalnie dla Ciebie, ".$_SESSION['login'].":"; 
+
+			
+	}if(mysqli_num_rows($wynik) ==0) { 
+	echo "<br><br>Gratulacje, ".$_SESSION['login'].". Teraz możesz dodać książki do ulubionych";
+	}
+		
+		
+		$connect->close();
+	}
+	
+?>
+<br><br> <br><br>
 <form method="POST" action="wyloguj.php">
 <input type="submit" value="Wyloguj" name="wyloguj"><br><br><br><br>
 </form>

@@ -40,7 +40,6 @@ $connect = new mysqli($host, $user, $pass, $database);
 				}
 				else{
 					echo "Nieprawidłowy login lub hasło. Spróbuj ponownie.";
-
 					
 				}
 					
@@ -51,5 +50,4 @@ $connect = new mysqli($host, $user, $pass, $database);
 		$connect->close();
    
 	}
-
 ?>
