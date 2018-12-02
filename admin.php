@@ -58,19 +58,57 @@ elseif((isset($_SESSION['admin'])) && ($_SESSION['admin']==false))
 </div>
 </div>
 
-<div class="row">
-<div class="col-sm-12">
 <section>
-  <h2>
+
+<div class="row">
+<div class="col-md-12">
 <?php
-echo "Witaj, ".$_SESSION['login']."!"; 
-?></h2><br><br>
+echo "<h2>Witaj, ".$_SESSION['login']."!</h2><br><br>"; 
+?>
+
 <form method="POST" action="wyloguj.php">
 <input type="submit" value="Wyloguj" name="wyloguj"><br><br><br><br>
 </form>
+</div>
+</div>
+
+<div class="tresc-item">
+<div class="row">
+<div class="col-md-1">
+</div>
+<div class="col-md-5">
+
+
+
+  <br><h3>Dodaj książkę</h3>
+  <form method="POST" action="edycjadodaj.php">
+  <br><b>Tytuł:</b><br><br><input type="text" name="tytul"><br><br>
+  <b>Autor:</b><br><br><input type="text" name="autor"><br><br>
+  <b>Opis:</b><br><br><input type="text" name="opis"><br><br>
+  
+  <b>Kategoria:</b><br><br><input type="radio" name="kategoria" value="Dla dzieci" checked> Dla dzieci<br>
+							<input type="radio" name="kategoria" value="Dla młodzieży"> Dla młodzieży<br>
+							<input type="radio" name="kategoria" value="Historia"> Historia<br>
+							<input type="radio" name="kategoria" value="Groza"> Groza<br>
+							<input type="radio" name="kategoria" value="Poradniki"> Poradniki<br><br>
+  
+  <input type="submit" value="Dodaj" name="Dodaj"><br><br><br>
+  </form>
+  </div>
+ 
+  <div class="col-md-5">
+  
+  <br><h3>Usuń książkę</h3>
+  <form method="POST" action="edycjaudun.php">
+  <br><b>Tytuł:</b><br><br><input type="text" name="tytul"><br><br>
+  <b>Autor:</b><br><br><input type="text" name="autor"><br><br><br>
+  <input type="submit" value="Usuń" name="usun"><br><br><br>
+
+   </form>
+ 
+   </div>
+ </div>
 </section>
-</div>
-</div>
 
 
 
