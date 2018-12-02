@@ -83,31 +83,57 @@ echo "Witaj, ".$_SESSION['login']."!";
 		$wynik=$connect->query($sql);
 	
 		if(mysqli_num_rows($wynik) > 0) { 
-		echo "<p>Twoje ulubione książki:<p>";
+		echo "<h3>Twoje ulubione książki:</h3>";
 		/* jeżeli wynik jest pozytywny, to wyświetlamy dane */ 
-		echo "<table cellpadding=\"5\" border=3>"; 
-		echo "<tr>"; 
-        echo "<td><b>Tytuł</b></td>"; 
-		echo "<td><b>Autor</></td>"; 
-        echo "<td><b>Opis</></td>"; 
-		echo "<td><b>Usuń</></td>";
+		echo "<table>"; 
 		while($r = mysqli_fetch_object($wynik)) { 
         echo "<tr>"; 
-        echo "<td><b>".$r->Tytul."</b></td>"; 
-		echo "<td>".$r->Autor."</td>"; 
-        echo "<td>".$r->opis."</td>"; 
-		echo "<td><form method='POST' action='usun.php'><input type='hidden' name='ksiazka' value=".$r->Nr_ksiazki."><input type='submit' value='Usuń'></form></td>";
+		echo "<td><br>".$r->obrazek."</td>";
+        echo "<td><b>Tytuł: ".$r->Tytul."</b><br>"; 
+		echo "<b>Autor: ".$r->Autor."</b><br>"; 
+        echo "<p align='justify'>".$r->opis."</p><br><br>"; 
+		echo "<form method='POST' action='usun.php'><input type='hidden' name='ksiazka' value=".$r->Nr_ksiazki."><input type='submit' value='Usuń'></form></td>";
         echo "</tr>"; 
 		} 
 		echo "</table>"; 
 		//koniec tabeli
+		}
+		//wybór najczęściej polubionej kategorii
+		echo "<br><br><h3>Polecane specjalnie dla Ciebie, ".$_SESSION['login'].":</h3>"; 
+		$sql2="select Kategoria, count(Tytul) from
+				(select Tytul, Kategoria from ulubione join ksiazki on ulubione.Nr_ksiazki=ksiazki.Nr_ksiazki where ulubione.id='$id')
+					as b group by Kategoria limit 1";
+		$wynik2=$connect->query($sql2);
+		$r2 = mysqli_fetch_object($wynik2);
+		$Kat=$r2->Kategoria;
 		
-		echo "<br><br>Polecane specjalnie dla Ciebie, ".$_SESSION['login'].":"; 
+		//wybór 3 książek z najczęściej polubionej kategorii
+		$sql3="SELECT  * from ksiazki where Nr_ksiazki NOT IN 
+		(SELECT ksiazki.Nr_ksiazki FROM ulubione join ksiazki ON ulubione.Nr_ksiazki=ksiazki.Nr_ksiazki where ulubione.id='$id') and Kategoria ='$Kat' limit 3";
+		
+		$wynik3=$connect->query($sql3);
+		
+		if(mysqli_num_rows($wynik3) > 0) { 
+		/* jeżeli wynik jest pozytywny, to wyświetlamy dane */ 
+		echo "<table>"; 
+		while($r3 = mysqli_fetch_object($wynik3)) { 
+        echo "<tr>"; 
+		echo "<td><br>".$r3->obrazek."</td>";
+        echo "<td><b>Tytuł: ".$r3->Tytul."</b><br>"; 
+		echo "<b>Autor: ".$r3->Autor."</b><br>"; 
+        echo "<p align='justify'>".$r3->opis."</p><br><br>"; 
+		echo "<form method='POST' action='ulubione.php'><input type='hidden' name='Nr_ksiazki' value=".$r3->Nr_ksiazki."><input type='submit' value='Ulubione'></form></td>";
+        echo "</tr>"; 
+		} 
+		echo "</table>"; 
 
 			
-	}if(mysqli_num_rows($wynik) ==0) { 
-	echo "<br><br>Gratulacje, ".$_SESSION['login'].". Teraz możesz dodać książki do ulubionych";
 	}
+	if(mysqli_num_rows($wynik) ==0) { 
+	echo "<br><br><h3>Gratulacje, ".$_SESSION['login'].". Teraz możesz dodać książki do ulubionych</h3>";
+	}
+	
+	
 		
 		
 		$connect->close();

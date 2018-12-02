@@ -47,102 +47,54 @@ session_start();
 
 <br>
 <br>
+<div class="row">
+<div class="col-sm-12">
 <section>
-<div class="tresc-item">
 
-	<div class="row">
-		<div class="col-md-1"></div>
-		<div class="col-md-4">
 	
-					<a href="img/h1.jpg" data-lightbox="roadtrip" data-title="Spowiedź Hitlera"><img class="col-sm-12" src="img/h1.jpg" alt="Spowiedź Hitlera"/></a><br><br>
-					
-					<form method="POST" action="ulubione.php">
-					<b><br><p>Tytuł: Spowiedź Hitlera</p></b>
-					<b><br><p>Autor: Christopher Macht</p></b>
-					<p>Kwiecień, 1945 rok. Do siedziby Adolfa Hitlera na specjalne wezwanie wodza zostaje sprowadzony "Szlachetny Żyd", Eduard Bloch. Ten sam, który przez wiele lat leczył matkę kanclerza Trzeciej Rzeszy, za co Hitler był mu szalenie wdzięczny. Führer oznajmia...</p> 
-					<input type="hidden" value="7" name="Nr_ksiazki">
-					<input type="submit" value="Ulubione">
-					<br><br><br>
-					</form>
-		</div>
-		<div class="col-md-1 offset-md-1"></div>
-		<div class="col-md-4">
-					<a href="img/h2.jpg" data-lightbox="roadtrip" data-title="Historia XIX wieku. Przeobrażenie świata"><img class="col-sm-12" src="img/h2.jpg" alt="Historia XIX wieku. Przeobrażenie świata"/></a><br><br>
-	
-					<form method="POST" action="ulubione.php">
-					<b><br><p>Tytuł: Historia XIX wieku. Przeobrażenie świata</p></b>
-					<b><br><p>Autor: Jurgen Osterhammel</p></b>
-					<p>Historia XIX wieku. Przeobrażenie świata to nie tylko wybitna praca historyczna, ale przede wszystkim pasjonująca lektura, od której trudno się oderwać.</p> 
-					<input type="hidden" value="8" name="Nr_ksiazki">
-					<input type="submit" value="Ulubione">
-					<br><br><br>
-					</form>
-
-					</div>
-	</div>	
-	<div class="row">
-		<div class="col-md-1"></div>
-		<div class="col-md-4">
-	
-										<a href="img/h3.jpg" data-lightbox="roadtrip" data-title="Okruchy tamtych dni. Powstanie Warszawskie na Powiślu. 1 sierpnia - 6 września"><img class="col-sm-12" src="img/h3.jpg" alt="Okruchy tamtych dni. Powstanie Warszawskie na Powiślu. 1 sierpnia - 6 września"/></a><br><br>
-
-					<form method="POST" action="ulubione.php">
-					<b><br><p>Tytuł: Okruchy tamtych dni. Powstanie Warszawskie na Powiślu. 1 sierpnia - 6 września</p></b>
-					<b><br><p>Autor: Stanisław Jarzyna</p></b>
-					<p>Wydawało się, że temat Powstania Warszawskiego został już wyczerpany. A jednak książka Stanisława Jarzyny odkrywa jeszcze inne, dotąd nieznane mi fakty, związane z przebiegiem walk na warszawskim Powiślu. Posiada ona niewątpliwe cechy raportu, sporządzone.</p> 
-					<input type="hidden" value="9" name="Nr_ksiazki">
-					<input type="submit" value="Ulubione">
-					<br><br><br>
-					</form>
-		</div>
-		<div class="col-md-1 offset-md-1"></div>
-		<div class="col-md-4">
+		<?php
+	require_once "connect.php";
+	$connect = new mysqli($host, $user, $pass, $database);
+	$connect -> query ('SET NAMES utf8');
+	$connect -> query ('SET CHARACTER_SET utf8_unicode_ci');
+	if ($connect->connect_errno!=0)
+	{
+		echo "Połączenie nie mogło zostać utworzone. Błąd: ".$connect->connect_errno;
+	}
+	else
+	{
 		
-						<a href="img/h4.jpg" data-lightbox="roadtrip" data-title="D-Day. Bitwa o Normandię"><img class="col-sm-12" src="img/h4.jpg" alt="D-Day. Bitwa o Normandię"/></a><br><br>
-					<form method="POST" action="ulubione.php">
-					<b><br><p>Tytuł: D-Day. Bitwa o Normandię</p></b>
-					<b><br><p>Autor: Antony Beevor</p></b>
-					<p>6 czerwca 1944 brytyjscy i amerykańscy żołnierze rozpoczęli inwazję na Normandię. Ten dzień przeszedł do historii jako D-Day. Przeprowadzona na gigantyczną i bezprecedensową skalę operacja, w której wzięło udział niemal trzy miliony żołnierzy, stała się...</p> 
-					<input type="hidden" value="10" name="Nr_ksiazki">
-					<input type="submit" value="Ulubione">
-					<br><br><br>
-					</form>
-		</div>
-	</div>	
-	<div class="row">
-		<div class="col-md-1"></div>
-		<div class="col-md-4">
-	
-					<a href="img/h5.jpg" data-lightbox="roadtrip" data-title="Absurdy i kurioza przedwojennej Polski"><img class="col-sm-12" src="img/h5.jpg" alt="Absurdy i kurioza przedwojennej Polski"/></a><br><br>
 
-					<form method="POST" action="ulubione.php">
-					<b><br><p>Tytuł: Pakt Ribbentrop-Beck. Czyli jak Polacy mogli u boku III Rzeszy pokonać Związek Sowiecki</p></b>
-					<b><br><p>Autor: Piotr Zychowicz</p></b>
-					<p>W dziejach narodów są chwile, gdy trzeba zacisnąć zęby i iść na bolesne koncesje. Ustąpić, aby ratować państwo przed zniszczeniem, a obywateli przed zagładą. W takiej sytuacji znalazła się Polska w 1939 roku.</p> 
-					<input type="hidden" value="11" name="Nr_ksiazki">
-					<input type="submit" value="Ulubione">
-					<br><br><br>
-					</form>
-		</div>
-		<div class="col-md-1 offset-md-1"></div>
-		<div class="col-md-4">
+		$sql="SELECT * FROM ksiazki where Kategoria='Historia'";
+		$wynik=$connect->query($sql);
 	
-					<a href="img/h6.jpg" data-lightbox="roadtrip" data-title="Pakt Ribbentrop-Beck. Czyli jak Polacy mogli u boku III Rzeszy pokonać Związek Sowiecki"><img class="col-sm-12" src="img/h6.jpg" alt="Pakt Ribbentrop-Beck. Czyli jak Polacy mogli u boku III Rzeszy pokonać Związek Sowiecki"/></a><br><br>
-					<form method="POST" action="ulubione.php">
-					<b><br><p>Tytuł: Absurdy i kurioza przedwojennej Polski</p></b>
-					<b><br><p>Autor: Piotrowski Remigiusz</p></b>
-					<p>Co śmieszyło przeciętnego obywatela II RP?
-Po co rozkręcano afery robakowe w wykwintnych warszawskich lokalach?
-Kto był najgłupszym przestępcą przedwojennej Polski?
-Ile kosztowało zaaranżowanie małżeństwa z domatorką przy kości, a ile z panną szczupłą.</p> 
-					<input type="hidden" value="12" name="Nr_ksiazki">
-					<input type="submit" value="Ulubione">
-					<br><br><br>
-					</form>
-		</div>
-	</div>		
-	</div>
+		if(mysqli_num_rows($wynik) > 0) { 
+		/* jeżeli wynik jest pozytywny, to wyświetlamy dane */ 
+		echo "<table>"; 
+		while($r = mysqli_fetch_object($wynik)) { 
+        echo "<tr>"; 
+		echo "<td><br>".$r->obrazek."</td>";
+        echo "<td><b>Tytuł: ".$r->Tytul."</b><br>"; 
+		echo "<b>Autor: ".$r->Autor."</b><br>"; 
+        echo "<p align='justify'>".$r->opis."</p><br><br>"; 
+		echo "<form method='POST' action='ulubione.php'><input type='hidden' name='Nr_ksiazki' value=".$r->Nr_ksiazki."><input type='submit' value='Ulubione'></form></td>";
+        echo "</tr>"; 
+		} 
+		echo "</table><br><br>"; 
+		//koniec tabeli
+
+		}	
+		
+		$connect->close();
+	}
+	
+?>
+	
+	
+
 </section>
+	</div>	
+	</div>	
 
 
 <div class="row">

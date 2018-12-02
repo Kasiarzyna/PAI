@@ -47,102 +47,54 @@ session_start();
 
 <br>
 <br>
+<div class="row">
+<div class="col-sm-12">
 <section>
-<div class="tresc-item">
 
-	<div class="row">
-		<div class="col-md-1"></div>
-		<div class="col-md-4">
 	
-					
-					<a href="img/m1.jpg" data-lightbox="roadtrip" data-title="Harry Potter i Przeklęte Dziecko"><img class="col-sm-12" src="img/m1.jpg" alt="Harry Potter i Przeklęte Dziecko"/></a><br><br>
-					<form method="POST" action="ulubione.php">
-					<b><br><p>Tytuł: Harry Potter i Przeklęte Dziecko</p></b>
-					<b><br><p>Autor: J.K. Rowling</p></b>
-					<p>Książka nagrodzona tytułem Książki Roku 2016 lubimyczytać.pl w kategorii Fantastyka młodzieżowa. Harry Potter nigdy nie miał łatwego życia, a tym bardziej teraz, gdy jest przepracowanym urzędnikiem Ministerstwa Magii, mężem oraz ojcem trójki dzieci w wiek.</p> 
-					<input type="hidden" value="25" name="Nr_ksiazki">
-					<input type="submit" value="Ulubione">
-					<br><br><br>
-					</form>
-		</div>
-	
-		<div class="col-md-1 offset-md-1"></div>
-		<div class="col-md-4">
-	
-					<a href="img/m2.jpg" data-lightbox="roadtrip" data-title="Wybrańcy"><img class="col-sm-12" src="img/m2.jpg" alt="Wybrańcy"/></a><br><br>
-					<form method="POST" action="ulubione.php">
-					<b><br><p>Tytuł: Wybrańcy</p></b>
-					<b><br><p>Autor: Kristin Cashore</p></b>
-					<p>W Estillu, podobnie jak w pozostałych królestwach, prawo wymuszało przekazywanie Obdarzeńców pod opiekę władcy. Dziecko, którego oczy przybrały dwa różne kolory – kilka tygodni, miesięcy, a najpóźniej kilka lat po narodzinach – wysyłano na dwór, gdzie wyc.</p> 
-					<input type="hidden" value="26" name="Nr_ksiazki">
-					<input type="submit" value="Ulubione">
-					<br><br><br>
-					</form>
-		</div>
+		<?php
+	require_once "connect.php";
+	$connect = new mysqli($host, $user, $pass, $database);
+	$connect -> query ('SET NAMES utf8');
+	$connect -> query ('SET CHARACTER_SET utf8_unicode_ci');
+	if ($connect->connect_errno!=0)
+	{
+		echo "Połączenie nie mogło zostać utworzone. Błąd: ".$connect->connect_errno;
+	}
+	else
+	{
 		
-</div>
-	<div class="row">
-		<div class="col-md-1"></div>
-		<div class="col-md-4">
-	
-					
-					<a href="img/m3.jpg" data-lightbox="roadtrip" data-title="Moje serce należy do ciebie"><img class="col-sm-12" src="img/m3.jpg" alt="Moje serce należy do ciebie"/></a><br><br>
-					<form method="POST" action="ulubione.php">
-					<b><br><p>Tytuł: Moje serce należy do ciebie</p></b>
-					<b><br><p>Autor: Alessio Puleo</p></b>
-					<p>Historia młodzieńczej miłości w bardzo romantycznym wydaniu, rozgrywająca się jednak we współczesnych i bliskich życia realiach. Przedmowę do książki napisał popularny autor Federico Moccia. W klasie 18-letniego Alexa pojawia się nowa uczennica, Ylenia. C.</p> 
-					<input type="hidden" value="27" name="Nr_ksiazki">
-					<input type="submit" value="Ulubione">
-					<br><br><br>
-					</form>
-		</div>
 
-		<div class="col-md-1 offset-md-1"></div>
-		<div class="col-md-4">
+		$sql="SELECT * FROM ksiazki where Kategoria='Dla młodzieży'";
+		$wynik=$connect->query($sql);
 	
-					<a href="img/m4.jpg" data-lightbox="roadtrip" data-title="Sekret Julii"><img class="col-sm-12" src="img/m4.jpg" alt="Sekret Julii"/></a><br><br>
-					<form method="POST" action="ulubione.php">
-					<b><br><p>Tytuł: Sekret Julii</p></b>
-					<b><br><p>Autor: Tahereh Mafi</p></b>
-					<p>Julia z Adamem uciekają z kwatery Komitetu Odnowy i trafiają do Punktu Omega, przystani dla dzieci o szczególnych zdolnościach. Wreszcie są bezpieczni. Sielanka zakochanych trwa jednak krótko. Julia poznaje sekret, który może przekreślić ich wspólne marzeń.</p> 
-					<input type="hidden" value="28" name="Nr_ksiazki">
-					<input type="submit" value="Ulubione">
-					<br><br><br>
-					</form>
-		</div>
-		</div>
-	
-	<div class="row">
-		<div class="col-md-1"></div>
-		<div class="col-md-4">
-	
-					
-					<a href="img/m5.jpg" data-lightbox="roadtrip" data-title="Anna we krwi"><img class="col-sm-12" src="img/m5.jpg" alt="Anna we krwi"/></a><br><br>
-					<form method="POST" action="ulubione.php">
-					<b><br><p>Tytuł: Anna we krwi</p></b>
-					<b><br><p>Autor: Kendare Blake</p></b>
-					<p>Cas Lowood odziedziczył po ojcu niezwykły zawód: zabija umarłych. Ojciec chłopaka został w makabryczny sposób zamordowany przez ducha, którego sam miał uśmiercić. Teraz, uzbrojony w sztylet athame, Cas podróżuje po całym kraju ze swoją matką-czarownicą.</p> 
-					<input type="hidden" value="29" name="Nr_ksiazki">
-					<input type="submit" value="Ulubione">
-					<br><br><br>
-					</form>
+		if(mysqli_num_rows($wynik) > 0) { 
+		/* jeżeli wynik jest pozytywny, to wyświetlamy dane */ 
+		echo "<table>"; 
+		while($r = mysqli_fetch_object($wynik)) { 
+        echo "<tr>"; 
+		echo "<td><br>".$r->obrazek."</td>";
+        echo "<td><b>Tytuł: ".$r->Tytul."</b><br>"; 
+		echo "<b>Autor: ".$r->Autor."</b><br>"; 
+        echo "<p align='justify'>".$r->opis."</p><br><br>"; 
+		echo "<form method='POST' action='ulubione.php'><input type='hidden' name='Nr_ksiazki' value=".$r->Nr_ksiazki."><input type='submit' value='Ulubione'></form></td>";
+        echo "</tr>"; 
+		} 
+		echo "</table><br><br>"; 
+		//koniec tabeli
+
+		}	
 		
-		</div>
-		<div class="col-md-1 offset-md-1"></div>
-		<div class="col-md-4">
+		$connect->close();
+	}
 	
-					<a href="img/m6.jpg" data-lightbox="roadtrip" data-title="Król Kruków"><img class="col-sm-12" src="img/m6.jpg" alt="Król Kruków"/></a><br><br>
-					<form method="POST" action="ulubione.php">
-					<b><br><p>Tytuł: Król Kruków</p></b>
-					<b><br><p>Autor: Maggie Stiefvater</p></b>
-					<p>Pierwszy tom magicznej sagi. Jedna dziewczyna i trzech chłopaków. Blue pochodzi z rodziny wróżek, jest medium do kontaktów ze światem zmarłych. Gansey, Adam i Ronan, trzej przyjaciele w elitarnej szkoły dla chłopców, obsesyjnie poszukują tajemniczych lini.</p> 
-					<input type="hidden" value="30" name="Nr_ksiazki">
-					<input type="submit" value="Ulubione">
-					<br><br><br>
-					</form>
-		</div>
-		</div>
+?>
+	
+	
+
 </section>
+	</div>	
+	</div>	
 
 
 <div class="row">

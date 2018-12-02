@@ -47,103 +47,54 @@ session_start();
 
 <br>
 <br>
+<div class="row">
+<div class="col-sm-12">
 <section>
-<div class="tresc-item">
 
-	<div class="row">
-		<div class="col-md-1"></div>
-		<div class="col-md-4">
 	
-					<a href="img/tajcyrk.jpg" data-lightbox="roadtrip" data-title="Tajemnica cyrku"><img class="col-sm-12" src="img/tajcyrk.jpg" alt="Tajemnica cyrku"/></a><br><br>
-					<form method="POST" action="ulubione.php">
-					<b><br><p>Tytuł: Tajemnica cyrku</p></b>
-					<b><br><p>Autor: Martin Widmark</p></b>
-					<p>Na arenie cyrku Splendido, który właśnie zawitał do Valleby, klaun Bobo i magik Trocadero zabawiają publiczność swoimi sztuczkami, a potężny Ali Pasza popisuje się swoją siłą. Zapatrzeni w nich widzowie okradani są przez nieuchwytnego kieszonkowca. </p> 
-					<input type="hidden" value="1" name="Nr_ksiazki">
-					<input type="submit" value="Ulubione">
-					<br><br><br>
-					</form>
-
-		</div>
-		<div class="col-md-1 offset-md-1"></div>
-		<div class="col-md-4">
-	
-					<a href="img/1.jpg" data-lightbox="roadtrip" data-title="Dzieci gotują"><img class="col-sm-12" src="img/1.jpg" alt="Dzieci gotują"/></a><br><br>
-					<form method="POST" action="ulubione.php">
-					<b><br><p>Tytuł: Dzieci gotują</p></b>
-					<b><br><p>Autor: Agnieszka Górska</p></b>
-					<p>Książka z prostymi przepisami dla dzieci.</p> 
-					<input type="hidden" value="2" name="Nr_ksiazki">
-					<input type="submit" value="Ulubione">
-					<br><br><br>
-					</form>
-
-		</div>
-	</div>	
-	<div class="row">
-		<div class="col-md-1"></div>
-		<div class="col-md-4">
-	
-					
-					<a href="img/g2.jpg" data-lightbox="roadtrip" data-title="Rok w lesie"><img class="col-sm-12" src="img/2.jpg" alt="Rok w lesie"/></a><br><br>
-					<form method="POST" action="ulubione.php">
-					<b><br><p>Tytuł: Rok w lesie</p></b>
-					<b><br><p>Autor: Emilia Dziubak</p></b>
-					<p>Historie o zwierzętach leśnych.</p> 
-					<input type="hidden" value="3" name="Nr_ksiazki">
-					<input type="submit" value="Ulubione">
-					<br><br><br>
-					</form>
-		</div>
+		<?php
+	require_once "connect.php";
+	$connect = new mysqli($host, $user, $pass, $database);
+	$connect -> query ('SET NAMES utf8');
+	$connect -> query ('SET CHARACTER_SET utf8_unicode_ci');
+	if ($connect->connect_errno!=0)
+	{
+		echo "Połączenie nie mogło zostać utworzone. Błąd: ".$connect->connect_errno;
+	}
+	else
+	{
 		
-		<div class="col-md-1 offset-md-1"></div>
-		<div class="col-md-4">
-	
-					<a href="img/3.jpg" data-lightbox="roadtrip" data-title="Pszczoły"><img class="col-sm-12" src="img/3.jpg" alt="Pszczoły"/></a><br><br>
-					<form method="POST" action="ulubione.php">
-					<b><br><p>Tytuł: Pszczoły</p></b>
-					<b><br><p>Autor: Piotr Socha</p></b>
-					<p>Daj się zaprosić do magicznego królestwa pszczół. Przyjrzyj się z bliska, jak są zbudowane, zajrzyj do ich domu, poznaj ich zwyczaje. Zobacz, jak tańczą, i dowiedz się, kiedy i po co to robią..</p> 
-					<input type="hidden" value="4" name="Nr_ksiazki">
-					<input type="submit" value="Ulubione">
-					<br><br><br>
-					</form>
-		</div>
-	</div>	
-	<div class="row">
-		<div class="col-md-1"></div>
-		<div class="col-md-4">
-	
-					
-					<a href="img/4.jpg" data-lightbox="roadtrip" data-title="Przygoda słonia"><img class="col-sm-12" src="img/4.jpg" alt="Przygoda słonia"/></a><br><br>
-					<form method="POST" action="ulubione.php">
-					<b><br><p>Tytuł: Przygoda słonia</p></b>
-					<b><br><p>Autor: Ewa Bukowska</p></b>
-					<p>Bajki filozoficzne, przeznaczone dla dzieci powyżej 5 roku życia, których autorką jest Ewa Bukowska – żona znanego i lubianego aktora. Do czytania samemu.</p> 
-					<input type="hidden" value="5" name="Nr_ksiazki">
-					<input type="submit" value="Ulubione">
-					<br><br><br>
-					</form>
 
-					</div>
-		<div class="col-md-1 offset-md-1"></div>
-		<div class="col-md-4">
+		$sql="SELECT * FROM ksiazki where Kategoria='Dla dzieci'";
+		$wynik=$connect->query($sql);
 	
-					<a href="img/5.jpg" data-lightbox="roadtrip" data-title="Pan Kuleczka"><img class="col-sm-12" src="img/5.jpg" alt="Pan Kuleczka"/></a><br><br>
-					<form method="POST" action="ulubione.php">
-					<b><br><p>Tytuł: Pan Kuleczka</p></b>
-					<b><br><p>Autor: Wojciech Widłak</p></b>
-					<p>Krótkie, barwnie ilustrowane opowiadania dla dzieci w każdym wieku. Pana Kuleczkę chciałby znać każdy. Zapewnia bezpieczeństwo i dyskretnie towarzyszy dzieciństwu.</p> 
-					<input type="hidden" value="6" name="Nr_ksiazki">
-					<input type="submit" value="Ulubione">
-					<br><br><br>
-					</form>
+		if(mysqli_num_rows($wynik) > 0) { 
+		/* jeżeli wynik jest pozytywny, to wyświetlamy dane */ 
+		echo "<table>"; 
+		while($r = mysqli_fetch_object($wynik)) { 
+        echo "<tr>"; 
+		echo "<td><br>".$r->obrazek."</td>";
+        echo "<td><b>Tytuł: ".$r->Tytul."</b><br>"; 
+		echo "<b>Autor: ".$r->Autor."</b><br>"; 
+        echo "<p align='justify'>".$r->opis."</p><br><br>"; 
+		echo "<form method='POST' action='ulubione.php'><input type='hidden' name='Nr_ksiazki' value=".$r->Nr_ksiazki."><input type='submit' value='Ulubione'></form></td>";
+        echo "</tr>"; 
+		} 
+		echo "</table><br><br>"; 
+		//koniec tabeli
 
-			</div>
-	</div>		
-	</div>
+		}	
+		
+		$connect->close();
+	}
+	
+?>
+	
+	
+
 </section>
-
+	</div>	
+	</div>	
 
 <div class="row">
 <div class="col-sm-12">
